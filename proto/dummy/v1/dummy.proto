@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package dummy.v1;
+
+option go_package = "github.com/thernande/grpc-test-project1/proto/dummy/v1";
+
+message Dummy {
+	string name = 1;
+}
+
+service DummyService {
+	rpc Get(Dummy) returns (Dummy) {}
+}
