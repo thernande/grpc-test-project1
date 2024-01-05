@@ -21,4 +21,8 @@
 proto/**/*.go
 
 # Go workspace file
+bazel-bin/
+bazel-grpc-test-project1/
+bazel-out/
+bazel-testlogs/
 
