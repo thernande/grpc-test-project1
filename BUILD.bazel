@@ -1,7 +1,7 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
 # gazelle:exclude proto/**/*.go
-# gazelle:prefix github.com/thernande/grpc-test-project1
+# gazelle:prefix github.com/thernande/todo-app
 gazelle(name = "gazelle")
 
 gazelle(
