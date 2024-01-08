@@ -18,7 +18,7 @@
 # vendor/
 
 # any proto generated file
-proto/**/*.go
+
 
 #any generate bazel build
 **/BUILD.bazel
