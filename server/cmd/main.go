@@ -5,6 +5,9 @@ import (
 	"net"
 	"os"
 
+	v1 "github.com/thernande/grpc-test-project1/proto/todo/v1"
+	"github.com/thernande/grpc-test-project1/server/internal/controller"
+	"github.com/thernande/grpc-test-project1/server/internal/repository/memory"
 	"google.golang.org/grpc"
 )
 
@@ -27,7 +30,11 @@ func main() {
 
 	opts := []grpc.ServerOption{}
 	s := grpc.NewServer(opts...)
+	mem := memory.New()
+	ctrl := controller.New(mem)
 	//registration of endpoints
+	v1.RegisterTodoServiceServer(s, ctrl)
+
 	defer s.Stop()
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v\n", err)

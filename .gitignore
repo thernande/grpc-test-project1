@@ -20,9 +20,12 @@
 # any proto generated file
 proto/**/*.go
 
+#any generate bazel build
+**/BUILD.bazel
+
 # Go workspace file
 bazel-bin/
-bazel-grpc-test-project1/
+bazel-todo-app/
 bazel-out/
 bazel-testlogs/
 

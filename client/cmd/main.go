@@ -3,7 +3,10 @@ package main
 import (
 	"log"
 	"os"
+	"time"
 
+	"github.com/thernande/grpc-test-project1/client/internal/controller/client"
+	v1 "github.com/thernande/grpc-test-project1/proto/todo/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -22,6 +25,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
+	c := v1.NewTodoServiceClient(conn)
+	dueDate := time.Now().Add(5 * time.Second)
+	client.AddTask(c, "This is a task", dueDate)
 	defer func(conn *grpc.ClientConn) {
 		if err := conn.Close(); err != nil {
 			log.Fatalf("unexpected error: %v", err)
